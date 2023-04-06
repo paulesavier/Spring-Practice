@@ -20,9 +20,10 @@ public class FirstController {
     }
 
     @GetMapping("/dayOfWeek")
-    public void dayOfWeek(@RequestParam(value = "name", defaultValue = "MONDAY") String dayOfWeek) {
+    public String dayOfWeek(@RequestParam(value = "name", defaultValue = "MONDAY") String dayOfWeek) {
 
         Week weekday = Week.MONDAY;
+        String finalDay;
 
         switch(dayOfWeek) {
             case "MONDAY":
@@ -50,30 +51,31 @@ public class FirstController {
 
         switch(weekday) {
             case MONDAY:
-                System.out.println("Cегодня понедельник");
+                finalDay = "Cегодня понедельник";
                 break;
             case TUESDAY:
-                System.out.println("Cегодня вторник");
+                finalDay = "Cегодня вторник";
                 break;
             case WEDNESDAY:
-                System.out.println("Cегодня среда");
+                finalDay = "Cегодня среда";
                 break;
             case THURSDAY:
-                System.out.println("Cегодня четверг");
+                finalDay = "Cегодня четверг";
             break;
             case FRIDAY:
-                System.out.println("Cегодня пятница");
+                finalDay = "Cегодня пятница";
             break;
             case SATURDAY:
-                System.out.println( "Cегодня суббота");
+                finalDay = "Cегодня суббота";
             break;
             case SUNDAY:
-                System.out.println("Cегодня воскресенье");
+                finalDay = "Cегодня воскресенье";
             break;
             default:
-                System.out.println(":(");
+                finalDay = ":(";
                 break;
         }
+        return finalDay;
     }
 
 }
